@@ -1,10 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv368crscsdq8"]
+[gd_scene load_steps=7 format=3 uid="uid://cv368crscsdq8"]
 
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_gwnnb"]
 [ext_resource type="Script" path="res://scenes/main/fps.gd" id="1_tgh34"]
 [ext_resource type="Script" path="res://scenes/main/objects.gd" id="2_e7cj1"]
+[ext_resource type="Texture2D" uid="uid://cjr17fxbrm3a4" path="res://assets/black.png" id="2_n2ame"]
+[ext_resource type="Script" path="res://scenes/main/Label.gd" id="2_vr0yy"]
 [ext_resource type="PackedScene" uid="uid://by3k1pgqhd2t2" path="res://scenes/sprite based/sprite_based.tscn" id="3_tmh4e"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_gwnnb")
+
+[node name="background" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("2_n2ame")
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(0.25, 0.25)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -16,8 +29,35 @@ offset_bottom = 40.0
 layout_mode = 2
 script = ExtResource("1_tgh34")
 
+[node name="process_time" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_vr0yy")
+
 [node name="objects" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 script = ExtResource("2_e7cj1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="sprite" type="Button" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+text = "Sprite"
+
+[node name="multimesh" type="Button" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+text = "Multimesh"
+
+[node name="renderingserver" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+text = "Rendering server"
 
 [node name="Sprite based" parent="." instance=ExtResource("3_tmh4e")]
