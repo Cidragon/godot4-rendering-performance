@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv368crscsdq8"]
+
+[ext_resource type="Script" path="res://scenes/main/fps.gd" id="1_tgh34"]
+[ext_resource type="Script" path="res://scenes/main/objects.gd" id="2_e7cj1"]
+
+[node name="Main" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="fps" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("1_tgh34")
+
+[node name="objects" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_e7cj1")
