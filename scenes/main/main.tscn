@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv368crscsdq8"]
+[gd_scene load_steps=4 format=3 uid="uid://cv368crscsdq8"]
 
 [ext_resource type="Script" path="res://scenes/main/fps.gd" id="1_tgh34"]
 [ext_resource type="Script" path="res://scenes/main/objects.gd" id="2_e7cj1"]
+[ext_resource type="PackedScene" uid="uid://by3k1pgqhd2t2" path="res://scenes/sprite based/sprite_based.tscn" id="3_tmh4e"]
 
 [node name="Main" type="Node2D"]
 
@@ -18,3 +19,5 @@ script = ExtResource("1_tgh34")
 [node name="objects" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 script = ExtResource("2_e7cj1")
+
+[node name="Sprite based" parent="." instance=ExtResource("3_tmh4e")]
